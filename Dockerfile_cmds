@@ -1,0 +1,96 @@
+In Dockerfiles, various commands define how to build and configure a Docker image. Below is a list of all the common Dockerfile commands:
+
+1. FROM
+    •	Purpose: Specifies the base image to use for the Docker image.
+    •	Syntax: FROM <image>[:<tag>]
+    •	Example: FROM ubuntu:20.04 or FROM ubuntu:latest
+
+2. RUN
+    •	Purpose: Executes commands in a new layer on top of the current image and commits the result.
+    •	Syntax: RUN <command>
+    •	Example: RUN apt-get update && apt-get install -y python3
+
+3. CMD
+    •	Purpose: Provides a default command to run when the container starts. This can be overridden by the docker run command.
+    •	Syntax: CMD ["executable", "param1", "param2"] or CMD ["param1", "param2"] (for ENTRYPOINT compatibility) or CMD <command>
+    •	Example: CMD ["python", "app.py"]
+
+4. ENTRYPOINT
+    •	Purpose: Configures a container to run as an executable. It allows the container to always run the same command and arguments, but you can still pass additional arguments at runtime.
+    •	Syntax: ENTRYPOINT ["executable", "param1", "param2"]
+    •	Example: ENTRYPOINT ["python", "app.py"]
+
+5. COPY
+    •	Purpose: Copies files or directories from the host system to the Docker image.
+    •	Syntax: COPY <src> <dest>
+    •	Example: COPY ./app /app
+
+6. ADD
+    •	Purpose: Similar to COPY, but with additional features, such as handling remote URLs and automatic extraction of tar files.
+    •	Syntax: ADD <src> <dest>
+    •	Example: ADD ./archive.tar /app/
+
+7. EXPOSE
+    •	Purpose: Informs Docker that the container listens on the specified network ports at runtime.
+    •	Syntax: EXPOSE <port> [<port>/<protocol>...]
+    •	Example: EXPOSE 80
+
+8. ENV
+    •	Purpose: Sets environment variables inside the container.
+    •	Syntax: ENV <key>=<value> [<key>=<value>...]
+    •	Example: ENV APP_ENV=production
+
+9. WORKDIR
+    •	Purpose: Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow.
+    •	Syntax: WORKDIR <path>
+    •	Example: WORKDIR /app
+
+10. VOLUME
+    •	Purpose: Creates a mount point and marks it as holding externally mounted volumes.
+    •	Syntax: VOLUME ["/path/to/dir"]
+    •	Example: VOLUME ["/data"]
+
+11. USER
+    •	Purpose: Specifies the user name or UID to use when running the image and for subsequent instructions.
+    •	Syntax: USER <username|uid>[:group|gid]
+    •	Example: USER node
+
+12. ARG
+    •	Purpose: Defines build-time variables that can be passed when building the Docker image.
+    •	Syntax: ARG <name>[=<default_value>]
+    •	Example: ARG VERSION=1.0
+
+13. LABEL
+    •	Purpose: Adds metadata to an image in the form of key-value pairs.
+    •	Syntax: LABEL <key>=<value> [<key>=<value>...]
+    •	Example: LABEL version="1.0" maintainer="dev@example.com"
+
+14. SHELL
+    •	Purpose: Allows the user to specify the default shell to use when running commands in RUN instructions.
+    •	Syntax: SHELL ["executable", "parameters"]
+    •	Example: SHELL ["/bin/bash", "-c"]
+
+15. STOPSIGNAL
+    •	Purpose: Defines the signal that the container will listen for to stop itself.
+    •	Syntax: STOPSIGNAL <signal>
+    •	Example: STOPSIGNAL SIGTERM
+
+16. HEALTHCHECK
+    •	Purpose: Configures a health check to check if the container is still running as expected.
+    •	Syntax: HEALTHCHECK [OPTIONS] CMD <command>
+    •	Example: HEALTHCHECK CMD curl --fail http://localhost:8080/health || exit 1
+
+17. ONBUILD
+    •	Purpose: Adds a trigger instruction to the image. The specified command is executed when the image is used as a base for another build.
+    •	Syntax: ONBUILD <instruction>
+    •	Example: ONBUILD RUN echo "This is a trigger"
+
+18. ARG (build-time variables)
+    •	Purpose: Defines variables that are available during the build process.
+    •	Syntax: ARG <variable_name>
+    •	Example: ARG NODE_VERSION=16
+
+
+
+These commands are used in various combinations to build Docker images and create customized container environments. The Dockerfile provides a flexible and powerful way to automate the creation and deployment of applications in isolated environments.
+
