@@ -16,7 +16,8 @@ In Dockerfiles, various commands define how to build and configure a Docker imag
     •	Example: CMD ["python", "app.py"]
 
 4. ENTRYPOINT
-    •	Purpose: Configures a container to run as an executable. It allows the container to always run the same command and arguments, but you can still pass additional arguments at runtime.
+    •	Purpose: Configures a container to run as an executable. It allows the container to always run the same command and arguments,
+but you can still pass additional arguments at runtime.
     •	Syntax: ENTRYPOINT ["executable", "param1", "param2"]
     •	Example: ENTRYPOINT ["python", "app.py"]
 
@@ -92,5 +93,6 @@ In Dockerfiles, various commands define how to build and configure a Docker imag
 
 
 
-These commands are used in various combinations to build Docker images and create customized container environments. The Dockerfile provides a flexible and powerful way to automate the creation and deployment of applications in isolated environments.
+These commands are used in various combinations to build Docker images and create customized container environments. 
+The Dockerfile provides a flexible and powerful way to automate the creation and deployment of applications in isolated environments.
 
