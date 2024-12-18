@@ -1,4 +1,5 @@
-In Dockerfiles, various commands define how to build and configure a Docker image. Below is a list of all the common Dockerfile commands: 
+In Dockerfiles, various commands define how to build and configure a Docker image. 
+Below is a list of all the common Dockerfile commands: 
 
 1. FROM
     •	Purpose: Specifies the base image to use for the Docker image.
@@ -11,13 +12,16 @@ In Dockerfiles, various commands define how to build and configure a Docker imag
     •	Example: RUN apt-get update && apt-get install -y python3
 
 3. CMD
-    •	Purpose: Provides a default command to run when the container starts. This can be overridden by the docker run command.
-    •	Syntax: CMD ["executable", "param1", "param2"] or CMD ["param1", "param2"] (for ENTRYPOINT compatibility) or CMD <command>
+    •	Purpose: Provides a default command to run when the container starts. 
+                 This can be overridden by the docker run command.
+    •	Syntax: CMD ["executable", "param1", "param2"] or CMD ["param1", "param2"] (for ENTRYPOINT compatibility) 
+        or CMD <command>
     •	Example: CMD ["python", "app.py"]
 
 4. ENTRYPOINT
-    •	Purpose: Configures a container to run as an executable. It allows the container to always run the same command and arguments,
-but you can still pass additional arguments at runtime.
+    •	Purpose: Configures a container to run as an executable. 
+            It allows the container to always run the same command and arguments,
+            but you can still pass additional arguments at runtime.
     •	Syntax: ENTRYPOINT ["executable", "param1", "param2"]
     •	Example: ENTRYPOINT ["python", "app.py"]
 
@@ -27,7 +31,8 @@ but you can still pass additional arguments at runtime.
     •	Example: COPY ./app /app
 
 6. ADD
-    •	Purpose: Similar to COPY, but with additional features, such as handling remote URLs and automatic extraction of tar files.
+    •	Purpose: Similar to COPY, but with additional features, such as handling remote URLs 
+                 and automatic extraction of tar files.
     •	Syntax: ADD <src> <dest>
     •	Example: ADD ./archive.tar /app/
 
@@ -82,7 +87,8 @@ but you can still pass additional arguments at runtime.
     •	Example: HEALTHCHECK CMD curl --fail http://localhost:8080/health || exit 1
 
 17. ONBUILD
-    •	Purpose: Adds a trigger instruction to the image. The specified command is executed when the image is used as a base for another build.
+    •	Purpose: Adds a trigger instruction to the image. 
+                 The specified command is executed when the image is used as a base for another build.
     •	Syntax: ONBUILD <instruction>
     •	Example: ONBUILD RUN echo "This is a trigger"
 
