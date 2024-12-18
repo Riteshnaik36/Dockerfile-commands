@@ -1,4 +1,4 @@
-In Dockerfiles, various commands define how to build and configure a Docker image. Below is a list of all the common Dockerfile commands:
+In Dockerfiles, various commands define how to build and configure a Docker image. Below is a list of all the common Dockerfile commands: 
 
 1. FROM
     •	Purpose: Specifies the base image to use for the Docker image.
